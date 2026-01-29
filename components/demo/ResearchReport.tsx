@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ResearchReport } from '@/lib/types/demo';
+import type { ResearchReport } from '@/lib/types/demo';
 
 interface ResearchReportProps {
   report: ResearchReport;
