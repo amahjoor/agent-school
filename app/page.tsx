@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { analytics } from '@/lib/analytics';
 
 export default function Home() {
   const [showMobileFallback, setShowMobileFallback] = useState(false);
@@ -10,6 +11,7 @@ export default function Home() {
   // Check if mobile on mount
   useEffect(() => {
     setMounted(true);
+    analytics.landingViewed();
     if (window.innerWidth < 1024) {
       setShowMobileFallback(true);
     }
@@ -105,6 +107,7 @@ export default function Home() {
 
             <Link
               href="/demo"
+              onClick={() => analytics.tryDemoClicked()}
               className="inline-block px-10 py-5 bg-blue-600 text-white text-xl font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Try Demo →
